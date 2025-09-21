@@ -11,6 +11,7 @@
     "./convex": "./convex/*.ts"
   },
   "devDependencies": {
+    "@types/node": "24.5.2",
     "@workspace/typescript-config": "workspace:*",
     "typescript": "latest"
   },
