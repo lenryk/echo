@@ -1,9 +1,11 @@
 {
   "name": "@workspace/backend",
   "type": "module",
+  "private": true,
   "scripts": {
     "dev": "convex dev",
-    "setup": "convex dev --until-success"
+    "setup": "convex dev --until-success",
+    "codegen": "convex codegen"
   },
   "exports": {
     "./convex": "./convex/*.ts"
