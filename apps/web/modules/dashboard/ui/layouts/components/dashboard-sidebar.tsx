@@ -82,11 +82,8 @@ const accountItems = [
 export const DashboardSidebar = () => {
   const pathname = usePathname();
   const isActive = (url: string) => {
-    if (url === "/") {
-      return pathname === "/";
-    }
-
-    return pathname.startsWith(url);
+    if (url === "/") return pathname === "/";
+    return pathname === url || pathname.startsWith(`${url}/`);
   };
 
   return (
@@ -100,16 +97,16 @@ export const DashboardSidebar = () => {
                 skipInvitationScreen
                 appearance={{
                   elements: {
-                    rootBox: "w-full! h-8!",
-                    avatarBox: "size-4! rounded-sm!",
+                    rootBox: "!w-full !h-8",
+                    avatarBox: "!size-4 !rounded-sm",
                     organizationSwitcherTrigger:
-                      "w-full! justify-start! group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2!",
+                      "!w-full !justify-start group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2",
                     organizationPreview:
-                      "group-data-[collapsible=icon]:justify-center! gap-2!",
+                      "group-data-[collapsible=icon]:!justify-center !gap-2",
                     organizationPreviewTextContainer:
-                      "group-data-[collapsible=icon]:hidden! text-xs! font-medium! text-sidebar-foreground!",
+                      "group-data-[collapsible=icon]:!hidden !text-xs !font-medium !text-sidebar-foreground",
                     organizationSwitcherTriggerIcon:
-                      "group-data-[collapsible=icon]:hidden! ml-auto! text-sidebar-foreground!",
+                      "group-data-[collapsible=icon]:!hidden !ml-auto !text-sidebar-foreground",
                   },
                 }}
               />
@@ -196,14 +193,14 @@ export const DashboardSidebar = () => {
               showName
               appearance={{
                 elements: {
-                  rootBox: "w-full! h-8!",
+                  rootBox: "!w-full !h-8",
                   userButtonTrigger:
-                    "w-full! p-2! hover:bg-sidebar-accent! hover:text-sidebar-accent-foreground! group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2!",
+                    "!w-full !p-2 hover:!bg-sidebar-accent hover:!text-sidebar-accent-foreground group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2",
                   userButtonBox:
-                    "w-full! flex-row-reverse! justify-end! gap-2! group-data-[collapsible=icon]:justify-center! text-sidebar-foreground!",
+                    "!w-full !flex-row-reverse !justify-end !gap-2 group-data-[collapsible=icon]:!justify-center !text-sidebar-foreground",
                   userButtonOuterIdentifier:
-                    "pl-0! group-data-[collapsible=icon]:hidden!",
-                  avatarBox: "size-4!",
+                    "!pl-0 group-data-[collapsible=icon]:!hidden",
+                  avatarBox: "!size-4",
                 },
               }}
             />
