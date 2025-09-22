@@ -62,12 +62,13 @@ export const useVapi = () => {
   }, []);
 
   const startCall = () => {
+    if (!vapi) {
+      return;
+    }
     setIsConnecting(true);
 
-    if (vapi) {
-      // Only for testing purposes - customers will provide own key
-      vapi.start("28032492-4b1d-4b05-8029-d18ac41fc2b3");
-    }
+    // Only for testing purposes - customers will provide own key
+    vapi.start("28032492-4b1d-4b05-8029-d18ac41fc2b3");
   };
 
   const endCall = () => {
