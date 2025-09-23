@@ -5,12 +5,15 @@ import { Button } from "@workspace/ui/components/button";
 export const WidgetFooter = () => {
   let screen = "selection";
   return (
-    <footer className="flex items-center justify-between border-t bg-backgoround">
+    <footer className="flex items-center justify-between border-t bg-background">
       <Button
         className="h-14 flex-1 rounded-none"
         onClick={() => {}}
         size="icon"
         variant="ghost"
+        aria-label="Home"
+        title="Home"
+        type="button"
       >
         <HomeIcon
           className={cn("size-5", screen === "selection" && "text-primary")}
@@ -21,9 +24,12 @@ export const WidgetFooter = () => {
         onClick={() => {}}
         size="icon"
         variant="ghost"
+        aria-label="Home"
+        title="Home"
+        type="button"
       >
         <InboxIcon
-          className={cn("size-5", screen === "imbox" && "text-primary")}
+          className={cn("size-5", screen === "inbox" && "text-primary")}
         />
       </Button>
     </footer>
