@@ -24,8 +24,8 @@ export const WidgetFooter = () => {
         onClick={() => {}}
         size="icon"
         variant="ghost"
-        aria-label="Home"
-        title="Home"
+        aria-label="Inbox"
+        title="Inbox"
         type="button"
       >
         <InboxIcon
