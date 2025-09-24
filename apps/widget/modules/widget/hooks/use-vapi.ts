@@ -15,7 +15,7 @@ export const useVapi = () => {
 
   useEffect(() => {
     // Only for testing purposes - customers will provide own key
-    const vapiInstance = new Vapi();
+    const vapiInstance = new Vapi("");
     setVapi(vapiInstance);
 
     vapiInstance.on("call-start", () => {
@@ -68,7 +68,7 @@ export const useVapi = () => {
     setIsConnecting(true);
 
     // Only for testing purposes - customers will provide own key
-    vapi.start();
+    vapi.start("");
   };
 
   const endCall = () => {
