@@ -16,6 +16,7 @@
     "typescript": "5.9.2"
   },
   "dependencies": {
+    "@clerk/backend": "2.15.0",
     "convex": "1.25.4"
   }
 }
