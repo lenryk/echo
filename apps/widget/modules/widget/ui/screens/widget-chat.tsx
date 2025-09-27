@@ -37,7 +37,12 @@ export const WidgetChatScreen = () => {
     <>
       <WidgetHeader className="flex items-center justify-between">
         <div className="flex items-center gap-x-2">
-          <Button size="icon" variant="transparent" onClick={onBack}>
+          <Button
+            size="icon"
+            variant="transparent"
+            onClick={onBack}
+            aria-label="Back"
+          >
             <ArrowLeftIcon />
           </Button>
           <p>Chat</p>

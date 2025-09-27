@@ -27,7 +27,7 @@ export const WidgetSelectionScreen = () => {
 
   const createConversation = useMutation(api.public.conversations.create);
   const [isPending, setIsPending] = useState(false);
-  const handleNewConverstion = async () => {
+  const handleNewConversation = async () => {
     if (!organizationId) {
       setScreen("error");
       setErrorMessage("Missing organization Id");
@@ -66,12 +66,12 @@ export const WidgetSelectionScreen = () => {
         <Button
           className="h-16 w-full justify-between"
           variant="outline"
-          onClick={handleNewConverstion}
+          onClick={handleNewConversation}
           disabled={isPending}
         >
           <div className="flex items-center gap-x-2">
             <MessageSquareTextIcon className="size-4" />
-            <span>Start chart</span>
+            <span>Start chat</span>
           </div>
           <ChevronRightIcon />
         </Button>
