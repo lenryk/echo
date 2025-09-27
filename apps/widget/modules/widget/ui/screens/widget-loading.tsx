@@ -54,6 +54,7 @@ export const WidgetLoadingScreen = ({
 
       try {
         const result = await validateOrganization({ organizationId });
+        console.log("result", result);
         if (result.valid) {
           setOrganizationId(organizationId);
           setStep("session");
