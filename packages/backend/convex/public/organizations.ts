@@ -15,7 +15,7 @@ export const validate = action({
       await clerkClient.organizations.getOrganization({
         organizationId: args.organizationId,
       });
-      return { Valid: true };
+      return { valid: true };
     } catch {
       return { valid: false, reason: "Organization not found" };
     }
