@@ -35,6 +35,9 @@ import z from "zod";
 import { useForm } from "react-hook-form";
 import { useAction } from "convex/react";
 import { Form, FormField } from "@workspace/ui/components/form";
+import { useInfiniteScroll } from "@workspace/ui/hooks/useInfiniteScroll";
+import InfiniteScrollTrigger from "@workspace/ui/components/infinite-scroll-trigger";
+import { DicebearAvatar } from "@workspace/ui/components/dicebear-avatar";
 
 const formSchema = z.object({
   message: z.string().min(1, "Message is required"),
@@ -74,6 +77,13 @@ export const WidgetChatScreen = () => {
       : "skip",
     { initialNumItems: 10 }
   );
+
+  const { topElementRef, isLoadingMore, canLoadMore, handleLoadMore } =
+    useInfiniteScroll({
+      status: messages.status,
+      loadMore: messages.loadMore,
+      loadSize: 10,
+    });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -116,6 +126,12 @@ export const WidgetChatScreen = () => {
 
       <AIConversation>
         <AIConversationContent>
+          <InfiniteScrollTrigger
+            canLoadMore={canLoadMore}
+            onLoadMore={handleLoadMore}
+            ref={topElementRef}
+            isLoadingMore={isLoadingMore}
+          />
           {toUIMessages(messages.results ?? [])?.map((message) => {
             return (
               <AIMessage
@@ -125,7 +141,13 @@ export const WidgetChatScreen = () => {
                 <AIMessageContent>
                   <AIResponse>{message.content}</AIResponse>
                 </AIMessageContent>
-                {/* AVATAR COMP */}
+                {message.role === "assistant" && (
+                  <DicebearAvatar
+                    seed="assistant"
+                    size={32}
+                    badgeImageUrl="/logo.svg"
+                  />
+                )}
               </AIMessage>
             );
           })}
