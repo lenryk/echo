@@ -36,6 +36,10 @@ export const useInfiniteScroll = ({
     );
 
     observer.observe(topElement);
+
+    return () => {
+      observer.disconnect();
+    };
   }, [handleLoadMore, observerEnabled]);
 
   return {

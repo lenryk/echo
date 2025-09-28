@@ -32,7 +32,7 @@ export const DicebearAvatar = ({
 
     // not using request instead creating svg Data uri. No need of network request
     return avatar.toDataUri();
-  }, [seed, size]);
+  }, [seed, size, imageUrl]);
 
   const badgeSize = Math.round(size * 0.5);
   return (

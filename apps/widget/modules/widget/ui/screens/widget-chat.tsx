@@ -36,7 +36,7 @@ import { useForm } from "react-hook-form";
 import { useAction } from "convex/react";
 import { Form, FormField } from "@workspace/ui/components/form";
 import { useInfiniteScroll } from "@workspace/ui/hooks/useInfiniteScroll";
-import InfiniteScrollTrigger from "@workspace/ui/components/infinite-scroll-trigger";
+import { InfiniteScrollTrigger } from "@workspace/ui/components/infinite-scroll-trigger";
 import { DicebearAvatar } from "@workspace/ui/components/dicebear-avatar";
 
 const formSchema = z.object({
