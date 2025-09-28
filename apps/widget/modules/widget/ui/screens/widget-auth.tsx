@@ -19,6 +19,7 @@ import { useSetAtom } from "jotai";
 import {
   contactSessionIdAtomFamily,
   organizationIdAtom,
+  screenAtom,
 } from "../../atoms/widget";
 import { useAtomValue } from "jotai";
 
@@ -32,6 +33,8 @@ export const WidgetAuthScreen = () => {
   const setContactSessionId = useSetAtom(
     contactSessionIdAtomFamily(organizationId || "")
   );
+  const setScreen = useSetAtom(screenAtom);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -66,6 +69,7 @@ export const WidgetAuthScreen = () => {
     });
 
     setContactSessionId(contactSessionId);
+    setScreen("selection");
   };
 
   return (
