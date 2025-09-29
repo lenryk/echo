@@ -93,7 +93,6 @@ export const getMany = query({
 
     const conversationsWithLastMessage = await Promise.all(
       conversations.page.map(async (conversation) => {
-        console.log("conversation", conversation);
         let lastMessage: MessageDoc | null = null;
 
         const contactSession = await ctx.db.get(conversation.contactSessionId);

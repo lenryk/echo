@@ -141,7 +141,7 @@ export const ConversationsPanel = () => {
 
                   <div className="flex-1">
                     <div className="flex w-full items-center gap-2">
-                      <span className="truncatte font-bold">
+                      <span className="truncate font-bold">
                         {conversation.contactSession.name}
                       </span>
                       <span className="ml-auto shrink-0 text-muted-foreground text-xs">
@@ -155,7 +155,7 @@ export const ConversationsPanel = () => {
                         )}
                         <span
                           className={cn(
-                            "line-clamp-1 text-muted-foreground textxs",
+                            "line-clamp-1 text-muted-foreground text-xs",
                             !isLastMessageOperator && "font-bold text-black"
                           )}
                         >
