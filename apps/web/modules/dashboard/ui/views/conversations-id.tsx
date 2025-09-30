@@ -65,6 +65,7 @@ export const ConversationDetailsView = ({
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    mode: "onChange",
     defaultValues: {
       message: "",
     },
@@ -74,7 +75,6 @@ export const ConversationDetailsView = ({
   const createMessage = useMutation(api.private.messages.create);
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const OID = conversation?.organizationId;
-    console.log({ OID });
 
     try {
       await createMessage({
@@ -110,7 +110,7 @@ export const ConversationDetailsView = ({
   const updateConversationStatus = useMutation(
     api.private.conversations.updateStatus
   );
-  const handleToggleStauts = async () => {
+  const handleToggleStatus = async () => {
     if (!conversation) return;
 
     setIsUpdatingStatus(true);
@@ -150,7 +150,7 @@ export const ConversationDetailsView = ({
         </Button>
         {!!conversation && (
           <ConversationStatusButton
-            onClick={handleToggleStauts}
+            onClick={handleToggleStatus}
             status={conversation.status}
             disabled={isUpdatingStatus}
           />

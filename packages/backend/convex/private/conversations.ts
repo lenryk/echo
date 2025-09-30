@@ -17,24 +17,7 @@ export const updateStatus = mutation({
     ),
   },
   handler: async (ctx, args) => {
-    const identity = await ctx.auth.getUserIdentity();
-
-    if (identity === null) {
-      throw new ConvexError({
-        code: "UNAUTHORIZED",
-        message: "Identity not found",
-      });
-    }
-
-    const orgId = identity.orgId as string;
-
-    if (!orgId) {
-      throw new ConvexError({
-        code: "UNAUTHORIZED",
-        message: "Organization not found",
-      });
-    }
-
+    const orgId = await checkUserIdentityAndGetOrgId(ctx);
     const conversation = await ctx.db.get(args.conversationId);
 
     if (!conversation) {

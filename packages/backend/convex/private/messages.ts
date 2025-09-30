@@ -97,7 +97,7 @@ export const enhanceResponse = action({
   },
 
   handler: async (ctx, args) => {
-    const orgId = checkUserIdentityAndGetOrgId(ctx);
+    const orgId = await checkUserIdentityAndGetOrgId(ctx);
 
     const response = await generateText({
       model: google("gemini-2.5-flash"),
