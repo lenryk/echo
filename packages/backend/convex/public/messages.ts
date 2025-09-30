@@ -74,9 +74,12 @@ export const create = action({
         }
       );
     } else {
-      await saveMessage(ctx, components.agent, {
+      await supportAgent.saveMessage(ctx, {
         threadId: args.threadId,
-        prompt: args.prompt,
+        message: {
+          role: "user",
+          content: args.prompt,
+        },
       });
     }
   },
