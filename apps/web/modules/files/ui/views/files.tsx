@@ -22,10 +22,8 @@ import type { PublicFile } from "@workspace/backend/private/files";
 import { Button } from "@workspace/ui/components/button";
 import {
   FileIcon,
-  MoreHorizontal,
   MoreHorizontalIcon,
   PlusIcon,
-  Trash,
   TrashIcon,
 } from "lucide-react";
 import { Badge } from "@workspace/ui/components/badge";
