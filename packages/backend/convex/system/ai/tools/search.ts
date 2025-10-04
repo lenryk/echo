@@ -54,14 +54,6 @@ export const search = createTool({
       model: google.chat("gemini-2.5-flash"),
     });
 
-    await supportAgent.saveMessage(ctx, {
-      threadId: ctx.threadId,
-      message: {
-        role: "assistant",
-        content: response.text,
-      },
-    });
-
     return response.text;
   },
 });
