@@ -43,4 +43,11 @@ export default defineSchema({
   users: defineTable({
     name: v.string(),
   }),
+  plugins: defineTable({
+    organizationId: v.string(),
+    service: v.union(v.literal("vapi")),
+    secretName: v.string(),
+  })
+    .index("by_organization_id", ["organizationId"])
+    .index("by_organization_id_and_service", ["organizationId", "service"]),
 });
