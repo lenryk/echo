@@ -101,7 +101,7 @@ const VapiPluginForm = ({
           <DialogTitle>Enable Vapi</DialogTitle>
         </DialogHeader>
         <DialogDescription>
-          You API keys are safely encrypted and stored using AWS Secrets
+          Your API keys are safely encrypted and stored using AWS Secrets
           Manager.
         </DialogDescription>
         <Form {...form}>
@@ -136,7 +136,7 @@ const VapiPluginForm = ({
                     <Input
                       {...field}
                       placeholder="Your private API key"
-                      type="text"
+                      type="password"
                     />
                   </FormControl>
                   <FormMessage />
