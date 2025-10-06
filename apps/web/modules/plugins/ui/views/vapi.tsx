@@ -80,7 +80,7 @@ const VapiPluginForm = ({
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await upsertSecret({
+      const test = await upsertSecret({
         service: "vapi",
         value: {
           publicApiKey: values.publicApiKey,
@@ -89,6 +89,7 @@ const VapiPluginForm = ({
       });
       setOpen(false);
       toast.success("Vapi secret created");
+      console.log(test);
     } catch (error) {
       console.error(error);
       toast.error("Something went wrong");
@@ -102,7 +103,7 @@ const VapiPluginForm = ({
           <DialogTitle>Enable Vapi</DialogTitle>
         </DialogHeader>
         <DialogDescription>
-          You API keys are safely encrypted and stored using AWS Secrets
+          Your API keys are safely encrypted and stored using AWS Secrets
           Manager.
         </DialogDescription>
         <Form {...form}>
@@ -199,6 +200,8 @@ const VapiPluginRemoveForm = ({
 
 export const VapiView = () => {
   const vapiPlugin = useQuery(api.private.plugins.getOne, { service: "vapi" });
+
+  console.log(vapiPlugin);
 
   const [connectOpen, setConnectOpen] = useState(false);
   const [removeOpen, setRemoveOpen] = useState(false);
