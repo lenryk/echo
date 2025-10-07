@@ -1,5 +1,7 @@
+import { CustomizationView } from "@/modules/customization/ui/views/customization";
+
 const Page = () => {
-  return <p>Customization</p>;
+  return <CustomizationView />;
 };
 
 export default Page;
