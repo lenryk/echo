@@ -22,7 +22,6 @@ import { FormSchema } from "../types";
 
 interface VapiFormFieldsProps {
   form: UseFormReturn<FormSchema>;
-  disabled?: boolean;
 }
 
 export const VapiFormFields = ({ form }: VapiFormFieldsProps) => {
