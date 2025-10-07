@@ -121,7 +121,7 @@ export const CustomizationForm = ({
 
             <div className="space-y-4">
               <div>
-                <h3 className="space-y-4">Default Suggestions</h3>
+                <h3>Default Suggestions</h3>
                 <p className="mb-4 text-muted-foreground text-sm">
                   Quick reply suggestions shown to customers to help guide the
                   conversation
