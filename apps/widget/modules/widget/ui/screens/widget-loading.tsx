@@ -8,10 +8,11 @@ import {
   loadingMessageAtom,
   organizationIdAtom,
   screenAtom,
+  widgetSettingsAtom,
 } from "../../atoms/widget";
 import { WidgetHeader } from "../components/widget-header";
 import { useEffect, useState } from "react";
-import { useAction, useMutation } from "convex/react";
+import { useAction, useMutation, useQuery } from "convex/react";
 import { api } from "@workspace/backend/_generated/api";
 
 type InitStep = "org" | "session" | "settings" | "vapi" | "done";
@@ -25,6 +26,7 @@ export const WidgetLoadingScreen = ({
   const [sessionValid, setSessionValid] = useState(false);
 
   const loadingMessage = useAtomValue(loadingMessageAtom);
+  const setWidgetSettings = useSetAtom(widgetSettingsAtom);
   const setErrorMessage = useSetAtom(errorMessageAtom);
   const setOrganizationId = useSetAtom(organizationIdAtom);
   const setScreen = useSetAtom(screenAtom);
@@ -92,7 +94,7 @@ export const WidgetLoadingScreen = ({
 
       if (!contactSessionId) {
         setSessionValid(false);
-        setStep("done");
+        setStep("settings");
         return;
       }
 
@@ -104,10 +106,10 @@ export const WidgetLoadingScreen = ({
         });
 
         setSessionValid(result.valid);
-        setStep("done");
+        setStep("settings");
       } catch {
         setSessionValid(false);
-        setStep("done");
+        setStep("settings");
       }
     };
 
@@ -122,6 +124,28 @@ export const WidgetLoadingScreen = ({
     const hasValidSession = contactSessionId && sessionValid;
     setScreen(hasValidSession ? "selection" : "auth");
   }, [step, contactSessionId, sessionValid, setScreen]);
+
+  const widgetSettings = useQuery(
+    api.public.widgetSettings.getByOrganizationId,
+    organizationId
+      ? {
+          organizationId,
+        }
+      : "skip"
+  );
+
+  useEffect(() => {
+    if (step !== "settings") {
+      return;
+    }
+
+    setLoadingMessage("Loading widget settings...");
+
+    if (widgetSettings !== undefined) {
+      setWidgetSettings(widgetSettings);
+      setStep("done");
+    }
+  }, [step, widgetSettings, setStep, setLoadingMessage, setWidgetSettings]);
 
   return (
     <>
