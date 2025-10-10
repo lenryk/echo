@@ -1,8 +1,7 @@
 "use client";
 
 import { useAtomValue } from "jotai";
-// import { WidgetFooter } from "../components/widget-footer";
-// import { WidgetHeader } from "../components/widget-header";
+import { WidgetVoiceScreen } from "../screens/widget-voice";
 import { WidgetAuthScreen } from "../screens/widget-auth";
 import { screenAtom } from "../../atoms/widget";
 import { WidgetErrorScreen } from "../screens/widget-error";
@@ -23,7 +22,7 @@ export const WidgetView = (props: Props) => {
     error: <WidgetErrorScreen />,
     loading: <WidgetLoadingScreen organizationId={organizationId} />,
     auth: <WidgetAuthScreen />,
-    voice: <p>TODO: Voice</p>,
+    voice: <WidgetVoiceScreen />,
     inbox: <WidgetInboxScreen />,
     selection: <WidgetSelectionScreen />,
     chat: <WidgetChatScreen />,
