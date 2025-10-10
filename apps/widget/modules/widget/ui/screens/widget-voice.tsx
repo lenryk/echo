@@ -14,7 +14,7 @@ import { WidgetHeader } from "../components/widget-header";
 import { useSetAtom } from "jotai";
 import { screenAtom } from "@/modules/widget/atoms/widget";
 import { cn } from "@workspace/ui/lib/utils";
-import { start } from "repl";
+import { cn } from "@workspace/ui/lib/utils";
 
 export const WidgetVoiceScreen = () => {
   const setScreen = useSetAtom(screenAtom);
