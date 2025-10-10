@@ -47,7 +47,7 @@ export const WidgetVoiceScreen = () => {
             {transcript.map((message, index) => (
               <AIMessage
                 from={message.role}
-                key={`*{message.role}-${index}-${message.text}`}
+                key={`${message.role}-${index}-${message.text}`}
               >
                 <AIMessageContent>{message.text}</AIMessageContent>
               </AIMessage>
