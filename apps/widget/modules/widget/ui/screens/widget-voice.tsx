@@ -30,7 +30,7 @@ export const WidgetVoiceScreen = () => {
   return (
     <>
       <WidgetHeader>
-        <div className="lfex items-center gap-x-2">
+        <div className="flex items-center gap-x-2">
           <Button
             variant="transparent"
             size="icon"
