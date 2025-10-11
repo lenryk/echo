@@ -8,7 +8,8 @@ import { WidgetErrorScreen } from "../screens/widget-error";
 import { WidgetLoadingScreen } from "../screens/widget-loading";
 import { WidgetSelectionScreen } from "../screens/widget-selection";
 import { WidgetChatScreen } from "../screens/widget-chat";
-import WidgetInboxScreen from "../screens/widget-inbox";
+import { WidgetInboxScreen } from "../screens/widget-inbox";
+import { WidgetContactScreen } from "../screens/widget-contact";
 
 interface Props {
   organizationId: string;
@@ -26,11 +27,11 @@ export const WidgetView = (props: Props) => {
     inbox: <WidgetInboxScreen />,
     selection: <WidgetSelectionScreen />,
     chat: <WidgetChatScreen />,
-    contact: <p>TODO: Contact</p>,
+    contact: <WidgetContactScreen />,
   };
 
   return (
-    <main className="min-h-screen flex h-full w-full flex-col overflow-hidden rounded-xl border bg-muted">
+    <main className="flex h-full w-full flex-col overflow-hidden rounded-xl border bg-muted">
       {screenComponents[screen]}
       {/* <WidgetFooter /> */}
     </main>
