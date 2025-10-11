@@ -54,12 +54,25 @@ export const create = action({
         message: "Conversation is resolved",
       });
 
+    // Refresh the user's session if they are within the threshold
+    await ctx.runMutation(internal.system.contactSessions.refresh, {
+      contactSessionId: args.contactSessionId,
+    });
+
+    const subscription = await ctx.runQuery(
+      internal.system.subscriptions.getByOrganizationId,
+      {
+        organizationId: conversation.organizationId,
+      }
+    );
+
     //Implement subscription check
     //If the status is unresolved then agent can create message.
     //If the status is resolved nor agent nor user nor operator can create message.
     //If the status is escalated only operator can create message to user and agent is not allowed.
 
-    const shouldTriggerAgent = conversation.status === "unresolved";
+    const shouldTriggerAgent =
+      conversation.status === "unresolved" && subscription?.status === "active";
 
     if (shouldTriggerAgent) {
       await supportAgent.generateText(
