@@ -67,7 +67,7 @@ export const WidgetContactScreen = () => {
               </>
             )}
           </Button>
-          <Button asChild className="w-full" size="lg">
+          <Button asChild className="w-full" size="lg" disabled={!phoneNumber}>
             <Link href={`tel:${phoneNumber}`}>
               <PhoneIcon />
               Call Now
