@@ -97,7 +97,6 @@ export const enhanceResponse = action({
   },
 
   handler: async (ctx, args) => {
-    await checkUserIdentityAndGetOrgId(ctx);
     const orgId = await checkUserIdentityAndGetOrgId(ctx);
 
     const subscription = await ctx.runQuery(
