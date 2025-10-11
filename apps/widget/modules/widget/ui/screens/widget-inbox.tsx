@@ -18,7 +18,7 @@ import { ArrowLeftIcon } from "lucide-react";
 import { useInfiniteScroll } from "@workspace/ui/hooks/useInfiniteScroll";
 import InfiniteScrollTrigger from "@workspace/ui/components/infinite-scroll-trigger";
 
-const WidgetInboxScreen = () => {
+export const WidgetInboxScreen = () => {
   const setScreen = useSetAtom(screenAtom);
   const setConversationId = useSetAtom(conversationIdAtom);
   const organizationId = useAtomValue(organizationIdAtom);
@@ -97,5 +97,3 @@ const WidgetInboxScreen = () => {
     </>
   );
 };
-
-export default WidgetInboxScreen;
