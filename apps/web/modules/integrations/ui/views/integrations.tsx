@@ -149,7 +149,7 @@ export const IntegrationsDialog = ({
                 {snippet}
               </pre>
               <Button
-                className="absolute right-6 top-4 size-6opacity-0 transition-opacity group-hover:opacity-100"
+                className="absolute right-6 top-4 size-6 opacity-0 transition-opacity group-hover:opacity-100"
                 onClick={handleCopy}
                 size="icon"
                 variant="secondary"
