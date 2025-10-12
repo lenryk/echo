@@ -1,5 +1,7 @@
+import { IntegrationsView } from "@/modules/integrations/ui/views/integrations";
+
 const Page = () => {
-  return <p>Integrations</p>;
+  return <IntegrationsView />;
 };
 
 export default Page;
