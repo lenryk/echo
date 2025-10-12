@@ -23,7 +23,11 @@ export const INTEGRATIONS = [
 
 export type IntegrationId = (typeof INTEGRATIONS)[number]["id"];
 
-export const HTML_SCRIPT = `<script src="http://localhost:3001/widget.js" data-organization-id="{{ORGANIZATION_ID}}"></script>`;
-export const REACT_SCRIPT = `<script src="http://localhost:3001/widget.js" data-organization-id="{{ORGANIZATION_ID}}"></script>`;
-export const NEXTJS_SCRIPT = `<script src="http://localhost:3001/widget.js" data-organization-id="{{ORGANIZATION_ID}}"></script>`;
-export const JAVASCRIPT_SCRIPT = `<script src="http://localhost:3001/widget.js" data-organization-id="{{ORGANIZATION_ID}}"></script>`;
+const WIDGET_URL =
+  process.env.NEXT_PUBLIC_WIDGET_URL || "http://localhost:3001/widget.js";
+const INTEGRATION_SCRIPT = `<script src="${WIDGET_URL}" data-organization-id="{{ORGANIZATION_ID}}"></script>`;
+
+export const HTML_SCRIPT = INTEGRATION_SCRIPT;
+export const REACT_SCRIPT = INTEGRATION_SCRIPT;
+export const NEXTJS_SCRIPT = INTEGRATION_SCRIPT;
+export const JAVASCRIPT_SCRIPT = INTEGRATION_SCRIPT;
